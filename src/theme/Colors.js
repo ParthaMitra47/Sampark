@@ -1,0 +1,18 @@
+export const Colors = {
+  primaryColor: '#0078f0ff',
+  secondaryColor: '#ffffffff',
+  tertiary: '#000f4cff',
+  // teal: '#36897f',
+  teal: '#3e64b1ff',
+  // background: '#889ba7ff',
+  background: '#98d7ffff',
+  white: '#FFFFFF',
+  black: '#000000',
+  blue: '#34b7f1',
+  textColor: '#cdd4da',
+  textGrey: '#8b959a',
+  red: '#cc4210ff',
+  messageColor: '#43448eff',
+  lowOpacity:'#7cb7f37e',
+  green:'#3b8007ff',
+};

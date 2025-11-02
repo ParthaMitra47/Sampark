@@ -1,45 +1,38 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { View, Text, StatusBar } from 'react-native'
+import React from 'react'
+import HomeScreen from './src/screens/HomeScreen';
+import { Colors } from './src/theme/Colors';
+import TopTabbar from './src/navigation/TopTabbar';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import ChatScreen from './src/screens/ChatScreen';
+import ContactScreen from './src/screens/ContactScreen';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+const Stack = createStackNavigator();
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
 
+const App = () => {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
+
+    // <NavigationContainer>
+    // <StatusBar backgroundColor={Colors.primaryColor} />
+    // <HomeScreen />
+    // </NavigationContainer>
+
+    <NavigationContainer>
+      <StatusBar backgroundColor={Colors.primaryColor} />
+     
+      <Stack.Navigator 
+      screenOptions={{
+        headerShown:false
+      }}
+      >
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="ChatScreen" component={ChatScreen} />
+        <Stack.Screen name="ContactScreen" component={ContactScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-export default App;
+export default App
